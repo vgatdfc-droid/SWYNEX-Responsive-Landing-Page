@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AIvora helps you create, automate, and grow with powerful AI tools and intelligent services.">
+<title>AIvora — Smarter Tools. Greater Possibilities.</title>
+<style>
+:root {
+  --bg:#080b18; --panel:#11182c; --purple:#8b5cf6;
+  --blue:#45b6ff; --ink:#101a3a; --muted:#9ca9c8;
+  --line:rgba(255,255,255,.11);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;color:#f8f9ff;background:#fff;line-height:1.6}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+.container{width:min(1120px,90%);margin:auto}
+.gradient{background:linear-gradient(100deg,#a78bfa,#4bc5ff);color:transparent;background-clip:text;-webkit-background-clip:text}
+.navbar{position:sticky;top:0;z-index:20;background:rgba(8,11,24,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-size:1.55rem;font-weight:850;letter-spacing:-1px;display:flex;align-items:center;gap:9px}
+.logo-mark{display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:linear-gradient(140deg,#a78bfa,#397eff);font-size:20px}
+.navlinks{display:flex;align-items:center;gap:29px}
+.navlinks a{color:#c1c8dc;font-size:.9rem;transition:.2s}
+.navlinks a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 20px;border-radius:50px;font-size:.9rem;font-weight:750;border:0;cursor:pointer;transition:transform .2s,filter .2s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.1)}
+.primary{background:linear-gradient(110deg,#9560ff,#438dff);color:#fff;box-shadow:0 8px 26px #6945ef36}
+.outline{border:1px solid #ffffff50;color:#fff;background:#ffffff06}
+.menu{display:none;background:none;color:white;border:1px solid var(--line);border-radius:9px;padding:7px 11px;font-size:1.3rem;cursor:pointer}
+.hero{background:radial-gradient(ellipse at 80% 75%,#35126b65,transparent 38%),radial-gradient(ellipse at 0 100%,#27277b50,transparent 38%),var(--bg);overflow:hidden}
+.hero-grid{min-height:535px;padding:75px 0 64px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:50px}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid #8b5cf65a;background:#8b5cf61c;color:#d3c4ff;border-radius:50px;padding:6px 13px;font-size:.78rem;margin-bottom:23px}
+.pulse{width:7px;height:7px;border-radius:50%;background:#60e6c0;box-shadow:0 0 12px #60e6c0}
+h1{font-size:clamp(2.7rem,5.1vw,4.25rem);line-height:1.09;letter-spacing:-.055em;max-width:590px}
+.hero-copy{color:#b5bfd7;font-size:1.02rem;max-width:480px;margin:23px 0 28px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.perks{display:flex;gap:23px;flex-wrap:wrap;margin-top:33px;color:#c6cde0;font-size:.78rem}
+.perks span{display:flex;gap:7px;align-items:center}
+.perks b{color:#a99aff;font-size:1rem}
+.visual{position:relative;min-height:360px;display:grid;place-items:center}
+.orb{position:absolute;width:280px;height:280px;border-radius:50%;background:linear-gradient(140deg,#6f39fa,#13b9ff);filter:blur(2px);opacity:.3}
+.ai-screen{position:relative;z-index:1;width:94%;max-width:440px;padding:18px;border:1px solid #6e86ff65;border-radius:19px;background:linear-gradient(145deg,#182342ed,#0b1022f5);box-shadow:0 25px 85px #4626ba44;transform:perspective(900px) rotateY(-5deg)}
+.screen-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px;font-size:.75rem;color:#b8c5e7}
+.status{color:#72e6c0}
+.ai-core{height:180px;margin:17px 0;border-radius:13px;background:radial-gradient(circle at 50% 48%,#5734e975,transparent 46%),#0a1125;display:grid;place-items:center;position:relative;overflow:hidden}
+.ai-core:before,.ai-core:after{content:"";position:absolute;width:220px;height:110px;border:1px solid #7059fa6b;border-radius:50%;transform:rotate(40deg)}
+.ai-core:after{transform:rotate(-40deg)}
+.core-icon{position:relative;z-index:1;width:86px;height:86px;display:grid;place-items:center;border-radius:23px;border:1px solid #a5a0ff;background:linear-gradient(140deg,#713dff,#236cfa);box-shadow:0 0 42px #7452ff7a;font-size:2.6rem}
+.screen-bottom{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.mini{background:#ffffff08;border:1px solid var(--line);border-radius:9px;padding:11px 7px;text-align:center;font-size:.7rem;color:#d3dbf3}
+.mini b{display:block;color:#9b8cff;font-size:1.05rem;margin-bottom:3px}
+.float-card{position:absolute;z-index:2;padding:12px 15px;background:#182343eF;border:1px solid #8797f76b;border-radius:12px;box-shadow:0 12px 30px #0003;font-size:.75rem;color:#e8ebff}
+.float-card b{display:block;font-size:.83rem}
+.float-one{top:25px;left:-5px}.float-two{bottom:29px;right:-2px}
+.section{padding:86px 0}
+.heading{text-align:center;max-width:660px;margin:0 auto 40px}
+.kicker{font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.15em;color:#7758f5}
+.heading h2,.split h2{font-size:clamp(2rem,3.6vw,2.8rem);line-height:1.18;letter-spacing:-.045em;color:var(--ink);margin-top:10px}
+.heading p{color:#697594;margin-top:13px;font-size:.96rem}
+.tools-section{background:linear-gradient(180deg,#fff,#f8faff)}
+.tools-layout{display:grid;grid-template-columns:.85fr 1.6fr;gap:45px;align-items:center}
+.split p{color:#687493;margin:15px 0 24px}
+.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tool{padding:20px 17px;border:1px solid #e6eafa;background:#fff;border-radius:14px;transition:transform .22s,box-shadow .22s}
+.tool:hover{transform:translateY(-5px);box-shadow:0 14px 30px #3b4b8911}
+.tool-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(135deg,#eee8ff,#e3f5ff);font-size:1.3rem;margin-bottom:13px}
+.tool h3{font-size:.96rem;color:#152044}
+.tool p{font-size:.8rem;line-height:1.55;color:#7784a2;margin:7px 0 12px}
+.tool a{font-size:.8rem;font-weight:750;color:#7356f5}
+.services{background:radial-gradient(ellipse at 100% 100%,#31206c55,transparent 40%),var(--bg)}
+.services .heading h2{color:#fff}
+.services .heading p{color:#aab5d0}
+.service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.service{padding:23px 20px;border:1px solid #ffffff18;border-radius:15px;background:linear-gradient(145deg,#ffffff0c,#ffffff04);transition:.2s}
+.service:hover{border-color:#8b5cf68a;transform:translateY(-4px)}
+.service .tool-icon{background:#7659f527}
+.service h3{font-size:1rem;margin-bottom:8px}
+.service p{font-size:.84rem;color:#aab6d2;line-height:1.65}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:25px}
+.step{padding-top:20px;border-top:1px solid #dddff4}
+.step-num{font-size:.78rem;color:#7957f5;font-weight:850;letter-spacing:.12em}
+.step h3{color:#152044;margin-top:12px}
+.step p{color:#77829d;font-size:.87rem;margin-top:7px}
+.testimonials{background:#f7f8ff}
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.review{padding:25px;border-radius:15px;background:#fff;border:1px solid #e7eafa}
+.stars{color:#f2ae38;letter-spacing:2px}
+.review blockquote{color:#53607e;font-size:.91rem;margin:13px 0 21px}
+.person{display:flex;align-items:center;gap:11px}
+.avatar{width:39px;height:39px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(140deg,#d9d0ff,#c6eaff);color:#4537a4;font-weight:800}
+.person strong{display:block;font-size:.84rem;color:#152044}
+.person small{display:block;font-size:.76rem;color:#8791aa}
+.cta-wrap{padding:0 0 75px;background:#f7f8ff}
+.cta{padding:43px 45px;border-radius:20px;background:linear-gradient(110deg,#7651f7,#4e79fa 60%,#38bafa);display:flex;align-items:center;justify-content:space-between;gap:25px;overflow:hidden}
+.cta h2{font-size:clamp(1.6rem,3vw,2.25rem);letter-spacing:-.04em}
+.cta p{color:#e6eaff;font-size:.9rem;margin-top:8px;max-width:520px}
+.cta .btn{background:#fff;color:#27305a;white-space:nowrap}
+footer{background:#080b18;color:#fff;padding:47px 0 22px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:35px;padding-bottom:35px}
+.footer-brand p{color:#9ba8c6;font-size:.86rem;margin-top:13px;max-width:250px}
+.footer-col h4{font-size:.87rem;margin-bottom:13px}
+.footer-col a{display:block;font-size:.82rem;color:#9ba8c6;margin:8px 0}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;color:#8f9bb8;font-size:.78rem}
+@media(max-width:900px){
+ .hero-grid{grid-template-columns:1fr;gap:25px;padding:70px 0}
+ .visual{width:100%;max-width:540px;margin:auto}
+ .tools-layout{grid-template-columns:1fr;gap:30px}
+ .service-grid{grid-template-columns:repeat(2,1fr)}
+ .tools-grid{grid-template-columns:repeat(3,1fr)}
+ .process-grid{grid-template-columns:repeat(2,1fr);row-gap:30px}
+}
+@media(max-width:620px){
+ .nav{height:66px}.menu{display:block}
+ .navlinks{display:none;position:absolute;top:65px;left:0;right:0;padding:15px 5% 22px;background:#0d1224;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}
+ .navlinks.open{display:flex}
+ .navlinks a{padding:11px 0}
+ .nav>.btn{display:none}
+ .hero-grid{padding:58px 0 44px}
+ h1{font-size:clamp(2.65rem,11vw,3.6rem)}
+ .hero-copy{font-size:.96rem}
+ .perks{gap:12px 18px}
+ .visual{min-height:300px}
+ .ai-screen{width:95%;padding:13px}
+ .ai-core{height:145px}
+ .core-icon{width:70px;height:70px;font-size:2rem}
+ .float-card{padding:9px 11px;font-size:.68rem}
+ .float-one{top:0;left:0}.float-two{bottom:0;right:0}
+ .section{padding:65px 0}
+ .tools-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .tool{padding:15px 12px}
+ .service-grid,.reviews{grid-template-columns:1fr}
+ .process-grid{gap:25px 18px}
+ .cta-wrap{padding-bottom:50px}
+ .cta{padding:30px 22px;align-items:flex-start;flex-direction:column}
+ .footer-grid{grid-template-columns:repeat(2,1fr);gap:28px}
+ .footer-brand{grid-column:1/-1}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<header class="navbar">
+  <div class="container nav">
+    <a class="logo" href="#home"><span class="logo-mark">A</span> AIvora</a>
+    <nav class="navlinks" id="navlinks" aria-label="Main navigation">
+      <a href="#home">Home</a><a href="#tools">AI Tools</a><a href="#services">Services</a><a href="#process">How It Works</a><a href="#about">About</a>
+    </nav>
+    <a class="btn primary" href="#get-started">Get Started ↗</a>
+    <button class="menu" id="menu" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="pill"><span class="pulse"></span> AI for a smarter tomorrow</div>
+      <h1>Powerful AI Tools for <span class="gradient">Work, Creativity and Growth.</span></h1>
+      <p class="hero-copy">AIvora brings together intelligent tools and professional AI services to help you create, automate, and innovate — faster and easier than ever.</p>
+      <div class="actions">
+        <a class="btn primary" href="#tools">Explore AI Tools <span>→</span></a>
+        <a class="btn outline" href="#services">Our Services</a>
+      </div>
+      <div class="perks">
+        <span><b>✦</b> Save Time</span><span><b>✧</b> Boost Creativity</span>
+        <span><b>⌘</b> Work Smarter</span><span><b>◈</b> Secure & Reliable</span>
+      </div>
+    </div>
+    <div class="visual" aria-label="Illustration of an AI dashboard">
+      <div class="orb"></div>
+      <div class="float-card float-one">✍️ <b>AI Writing</b>Content in seconds</div>
+      <div class="float-card float-two">⚡ <b>Smart Automation</b>Less work, more impact</div>
+      <div class="ai-screen">
+        <div class="screen-top"><strong>✦ AIvora Intelligence</strong><span class="status">● Online</span></div>
+        <div class="ai-core"><div class="core-icon">✧</div></div>
+        <div class="screen-bottom">
+          <div class="mini"><b>✍</b>Write</div>
+          <div class="mini"><b>▧</b>Create</div>
+          <div class="mini"><b>⌘</b>Automate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tools-section" id="tools">
+  <div class="container tools-layout">
+    <div class="split">
+      <span class="kicker">Your AI toolkit</span>
+      <h2>Everything you need, <span class="gradient">all in one place.</span></h2>
+      <p>From content creation to image generation, discover AI tools built to help you work smarter, not harder.</p>
+      <a class="btn primary" href="#get-started">Explore All Tools →</a>
+    </div>
+    <div class="tools-grid">
+      <article class="tool"><div class="tool-icon">✍️</div><h3>AI Writer</h3><p>Create blog posts, emails, and marketing copy in seconds.</p><a href="#get-started">Try it now ↗</a></article>
+      <article class="tool"><div class="tool-icon">🎨</div><h3>Image Generator</h3><p>Turn your ideas into stunning AI-powered visuals.</p><a href="#get-started">Try it now ↗</a></article>
+      <article class="tool"><div class="tool-icon">💬</div><h3>AI Chat</h3><p>Get answers, brainstorm ideas, and explore possibilities.</p><a href="#get-started">Try it now ↗</a></article>
+      <article class="tool"><div class="tool-icon">⌘</div><h3>Code Assistant</h3><p>Write, understand, and improve code with AI support.</p><a href="#get-started">Try it now ↗</a></article>
+      <article class="tool"><div class="tool-icon">🎙️</div><h3>Speech Tools</h3><p>Convert text and speech for more accessible content.</p><a href="#get-started">Try it now ↗</a></article>
+      <article class="tool"><div class="tool-icon">📊</div><h3>Data Insights</h3><p>Turn complex information into clearer insights.</p><a href="#get-started">Try it now ↗</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="services">
+  <div class="container">
+    <div class="heading"><span class="kicker">AI services</span><h2>Intelligence that moves your business forward.</h2><p>Practical AI expertise to help teams simplify workflows and create new possibilities.</p></div>
+    <div class="service-grid">
+      <article class="service"><div class="tool-icon">⚙️</div><h3>AI Automation</h3><p>Streamline repetitive workflows and spend more time on meaningful work.</p></article>
+      <article class="service"><div class="tool-icon">⬡</div><h3>Custom AI Solutions</h3><p>Explore tailored AI applications that suit your business requirements.</p></article>
+      <article class="service"><div class="tool-icon">💡</div><h3>AI Consulting</h3><p>Identify practical opportunities and develop a clear AI adoption strategy.</p></article>
+      <article class="service"><div class="tool-icon">🧠</div><h3>AI Integration</h3><p>Connect intelligent capabilities to your products and existing tools.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="container">
+    <div class="heading"><span class="kicker">How it works</span><h2>Four steps. Endless possibilities.</h2><p>Getting started with AIvora is simple. Find your tool and start creating.</p></div>
+    <div class="process-grid">
+      <article class="step"><span class="step-num">01 — DISCOVER</span><h3>Choose a Tool</h3><p>Explore our toolkit and find the right solution for your goals.</p></article>
+      <article class="step"><span class="step-num">02 — PERSONALIZE</span><h3>Make It Yours</h3><p>Adjust your settings and describe what you want to accomplish.</p></article>
+      <article class="step"><span class="step-num">03 — CREATE</span><h3>Let AI Help</h3><p>Generate ideas, simplify tasks, and bring your work to life.</p></article>
+      <article class="step"><span class="step-num">04 — GROW</span><h3>Go Further</h3><p>Build on your results and find new ways to work smarter.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section testimonials" id="about">
+  <div class="container">
+    <div class="heading"><span class="kicker">Why AIvora</span><h2>Built for curious minds and bold ideas.</h2><p>We believe AI should feel useful, approachable, and empowering — for individuals and teams alike.</p></div>
+    <div class="reviews">
+      <article class="review"><div class="stars">✦ ✦ ✦ ✦ ✦</div><blockquote>“AI tools should make room for creativity, not add complexity. That is the experience we aim to deliver.”</blockquote><div class="person"><div class="avatar">C</div><div><strong>Creative teams</strong><small>Made for everyday ideas</small></div></div></article>
+      <article class="review"><div class="stars">✦ ✦ ✦ ✦ ✦</div><blockquote>“A thoughtful AI workflow helps people spend less time on repetitive tasks and more time solving problems.”</blockquote><div class="person"><div class="avatar">B</div><div><strong>Growing businesses</strong><small>Made for meaningful work</small></div></div></article>
+      <article class="review"><div class="stars">✦ ✦ ✦ ✦ ✦</div><blockquote>“The best technology makes getting started feel simple while leaving plenty of room to grow.”</blockquote><div class="person"><div class="avatar">I</div><div><strong>Independent innovators</strong><small>Made for what's next</small></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="cta-wrap" id="get-started">
+  <div class="container">
+    <div class="cta">
+      <div><h2>Ready to make something amazing?</h2><p>Bring your ideas to life with intelligent tools designed to help you create, explore, and achieve more.</p></div>
+      <a class="btn" href="mailto:hello@aivora.example?subject=Getting%20Started%20with%20AIvora">Get Started Free ↗</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a class="logo" href="#home"><span class="logo-mark">A</span> AIvora</a><p>Smarter tools. Greater possibilities. Make your next idea your best one.</p></div>
+      <div class="footer-col"><h4>Explore</h4><a href="#tools">AI Tools</a><a href="#services">AI Services</a><a href="#process">How It Works</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="#about">About AIvora</a><a href="#get-started">Contact</a><a href="#get-started">Get Started</a></div>
+      <div class="footer-col"><h4>Discover</h4><a href="#tools">AI Writing</a><a href="#tools">Image Creation</a><a href="#tools">Code Assistant</a></div>
+    </div>
+    <div class="footer-bottom"><span>© <span id="year"></span> AIvora. All rights reserved.</span><span>Designed for a smarter tomorrow ✦</span></div>
+  </div>
+</footer>
+
+<script>
+const menu = document.getElementById('menu');
+const navlinks = document.getElementById('navlinks');
+
+menu.addEventListener('click', () => {
+  const open = navlinks.classList.toggle('open');
+  menu.setAttribute('aria-expanded', String(open));
+  menu.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  menu.textContent = open ? '✕' : '☰';
+});
+
+navlinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navlinks.classList.remove('open');
+    menu.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-label', 'Open menu');
+    menu.textContent = '☰';
+  });
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
